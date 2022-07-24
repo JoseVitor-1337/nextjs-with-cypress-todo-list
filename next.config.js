@@ -1,3 +1,5 @@
+/*eslint no-undef: "off"*/
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,

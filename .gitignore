@@ -4,6 +4,7 @@
 # production
 /coverage
 /build
+/tsconfig.tsbuildinfo
 
 # next.js
 /.next/
