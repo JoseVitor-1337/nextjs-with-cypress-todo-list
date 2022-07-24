@@ -8,11 +8,4 @@ yarn check-all ||
   echo "Calma lá, foi encontrado um erro, revisa o código do commit e volta depois."
 )
 
-echo "Ok ok, aparentemente ta tudo certo, testando a build da aplicação antes do commit"
-
-yarn build || 
-( 
-  echo "Eita, olha o perigo, deu um erro ao realizar a build, corrigi o erro e commita novamente"
-)
-
 echo "Você venceu... esta vez. Estou comitando agora."
