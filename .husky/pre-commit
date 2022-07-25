@@ -3,6 +3,11 @@
 
 echo "Verificando todo o código estabelecido antes do commit"
 
+yarn cypress:chrome || 
+( 
+  echo "Os teste E2E falharam."
+)
+
 yarn check-all || 
 ( 
   echo "Calma lá, foi encontrado um erro, revisa o código do commit e volta depois."

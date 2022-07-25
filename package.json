@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "cypress": "cypress run",
+    "cypress:chrome": "cypress run -b chrome",
+    "cypress:open": "cypress open",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -26,6 +29,7 @@
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "@typescript-eslint/parser": "^5.30.7",
     "autoprefixer": "^10.4.7",
+    "cypress": "^10.3.1",
     "eslint": "^7.32.0 || ^8.2.0",
     "eslint-config-next": "12.2.3",
     "eslint-config-prettier": "^8.5.0",
