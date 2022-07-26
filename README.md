@@ -1,1 +1,1 @@
-# nextjs-with-cypress-todo-list
+# nextjs-tailwind-cypress-to-do-list

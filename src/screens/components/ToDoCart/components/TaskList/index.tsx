@@ -1,17 +1,19 @@
 import { memo, useState } from 'react'
 
+import CloseImg from 'assets/icons/close.png'
+
 import { useTasks } from 'screens/context/Tasks/Provider'
 import RadioButton from './components/RadioButton'
 
 function TaskList() {
   const [task, setTask] = useState('')
 
-  const { tasks, addTask, completeTask } = useTasks()
+  const { tasks, addTask, removeTask, completeTask } = useTasks()
 
   return (
     <div className="animate-fade bg-white rounded-md p-2 space-y-4">
       {tasks.length > 0 ? (
-        <ul id="list-tasks" className="space-y-1">
+        <ul data-cy="list-tasks" className="space-y-1">
           {tasks.map(({ task, completed }) => {
             return (
               <li
@@ -26,13 +28,27 @@ function TaskList() {
                   {task}
                 </p>
 
-                <RadioButton
-                  isActive={completed}
-                  name="To Do"
-                  id={task}
-                  value={task}
-                  onChange={() => completeTask(task)}
-                />
+                <div className="flex space-x-2">
+                  <RadioButton
+                    isActive={completed}
+                    name="To Do"
+                    data-cy={task}
+                    value={task}
+                    onChange={() => completeTask(task)}
+                  />
+
+                  <button
+                    data-cy={`${task}-remove-btn`}
+                    type="button"
+                    onClick={() => removeTask(task)}
+                  >
+                    <img
+                      className="h-4"
+                      src={CloseImg.src}
+                      alt="Apagar tarefa"
+                    />
+                  </button>
+                </div>
               </li>
             )
           })}
@@ -55,7 +71,7 @@ function TaskList() {
         className="flex space-x-2 items-center justify-between"
       >
         <input
-          id="task-input"
+          data-cy="task-input"
           value={task}
           onChange={({ target }) => setTask(target.value)}
           type="text"
@@ -64,7 +80,7 @@ function TaskList() {
         />
 
         <button
-          id="add-task-btn"
+          data-cy="add-task-btn"
           className="bg-blue-500 p-1 px-2 rounded-md border-2 border-transparent text-white hover:bg-blue-800 hover:animation-pulse"
         >
           Adicionar
